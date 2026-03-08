@@ -37,7 +37,18 @@
 
             <!-- Аватар пользователя / Вход -->
             <!-- Аватар пользователя / Вход -->
-        <a href="{% url 'users' %}" class="user-avatar-link">
+        <a href="{% url 'users:register' %}" class="user-avatar-link">
+            <div class="user-avatar">
+                <img src="https://via.placeholder.com/40x40" alt="Avatar">
+            </div>
+        </a>
+
+        <a href="{% url 'users:login' %}" class="user-avatar-link">
+            <div class="user-avatar">
+                <img src="https://via.placeholder.com/40x40" alt="Avatar">
+            </div>
+        </a>
+        <a href="{% url 'users:profile' %}" class="user-avatar-link">
             <div class="user-avatar">
                 <img src="https://via.placeholder.com/40x40" alt="Avatar">
             </div>

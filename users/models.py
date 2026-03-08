@@ -26,24 +26,24 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True, max_length=66),
-    first_name = models.CharField(max_length=66),
-    last_name = models.CharField(max_length=66),
-    address1 = models.CharField(max_length=128,blank=True,null=True),
-    address2 = models.CharField(max_length=128,blank=True,null=True),
-    city = models.CharField(max_length=128,blank=True,null=True),
-    country = models.CharField(max_length=128,blank=True,null=True),
-    province = models.CharField(max_length=128,blank=True,null=True),
-    postal_code = models.CharField(max_length=20,blank=True,null=True),
-    phone = models.CharField(max_length=15,blank=True,null=True),
-    marketing_consent1=models.BooleanField(default=False),
-    marketing_consent2 = models.BooleanField(default=False),
+    email = models.EmailField(unique=True, max_length=66)
+    first_name = models.CharField(max_length=66)
+    last_name = models.CharField(max_length=66)
+    address1 = models.CharField(max_length=128,blank=True,null=True)
+    address2 = models.CharField(max_length=128,blank=True,null=True)
+    city = models.CharField(max_length=128,blank=True,null=True)
+    country = models.CharField(max_length=128,blank=True,null=True)
+    province = models.CharField(max_length=128,blank=True,null=True)
+    postal_code = models.CharField(max_length=20,blank=True,null=True)
+    phone = models.CharField(max_length=15,blank=True,null=True)
+    marketing_consent1=models.BooleanField(default=False)
+    marketing_consent2 = models.BooleanField(default=False)
 
-    username=models.CharField(max_length=150,unique=True,null=True,blank=True),
+    username=models.CharField(max_length=150,unique=True,null=True,blank=True)
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email',
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name','last_name']
 
     def __str__(self):

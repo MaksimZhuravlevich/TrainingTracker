@@ -12,24 +12,67 @@ def register(request):
         if form.is_valid():
             user=form.save()
             login(request,user,backend='django.contrib.backends.ModelBackend')
-            return redirect('user:profile')
-        else:
-            form=CustomUserCreationForm()
-        return render(request,'users/register.html',
+            return redirect('users:profile')
+    else:
+        form=CustomUserCreationForm()
+    return render(request,'users/register.html',
                       {'form':form})
 
+
 def login_view(request):
-    if request.method=='POST':
-        form = CustomUserLoginForm(request=request,data=request.POST)
+    if request.method == 'POST':
+        form = CustomUserLoginForm(request=request, data=request.POST)
+        print("Данные из POST:", request.POST)  # Отладка
+        print("Форма заполнена? :", form.is_bound)  # Отладка
+
         if form.is_valid():
+            print("✅ Форма валидна!")  # Отладка
             user = form.get_user()
-            login(request,user,backend='django.contrib.backends.ModelBackend')
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('users:profile')
         else:
-            form=CustomUserLoginForm()
-        return render(request,'users/login.html',{'form':form})
+            print("❌ Форма НЕ валидна!")  # Отладка
+            print("Ошибки формы:", form.errors)  # ← Это самое важное!
+            print("Ошибки полей:", form.error_messages)  # Отладка
+    else:
+        form = CustomUserLoginForm()
+
+    return render(request, 'users/login.html', {'form': form})
 
 
 @login_required
 def profile_views(request):
-    return render(request,'user/profile.html',{'user':request.user})
+    return render(request,'users/profile.html',{'user':request.user})
+
+
+@login_required
+def account_details(request):
+    user = CustomUser.objects.get(id=request.user.id)
+    return render(request, 'users/partials/account_details.html',
+                  {'user': user})
+
+
+@login_required
+def edit_account_details(request):
+    form = CustomUserUpdateForm(instance=request.user)
+    return render(request, 'users/partials/edit_account_details.html',
+                  {'user': request.user, 'form': form})
+
+
+@login_required
+def update_account_details(request):
+    if request.method == 'POST':
+        form = CustomUserUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.clean()
+            user.save()
+            return render(request, 'users/partials/account_details.html', {'user': user})
+        else:
+            return render(request, 'users/partials/edit_account_details.html', {'user': request.user, 'form': form})
+    return render(request, 'users/partials/account_details.html', {'user': request.user})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('users:register')
