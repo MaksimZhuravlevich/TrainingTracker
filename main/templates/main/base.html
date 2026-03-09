@@ -28,32 +28,37 @@
             </a>
         </div>
 
-        <div class="top-nav-right">
-            <!-- Уведомления -->
-            <div class="notifications">
-                <i class="fas fa-bell"></i>
-                <span class="badge">3</span>
-            </div>
-
-            <!-- Аватар пользователя / Вход -->
-            <!-- Аватар пользователя / Вход -->
-        <a href="{% url 'users:register' %}" class="user-avatar-link">
-            <div class="user-avatar">
-                <img src="https://via.placeholder.com/40x40" alt="Avatar">
-            </div>
-        </a>
-
-        <a href="{% url 'users:login' %}" class="user-avatar-link">
-            <div class="user-avatar">
-                <img src="https://via.placeholder.com/40x40" alt="Avatar">
-            </div>
-        </a>
-        <a href="{% url 'users:profile' %}" class="user-avatar-link">
-            <div class="user-avatar">
-                <img src="https://via.placeholder.com/40x40" alt="Avatar">
-            </div>
-        </a>
+       <div class="top-nav-right">
+    <!-- Уведомления (только для авторизованных) -->
+    {% if user.is_authenticated %}
+        <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
         </div>
+    {% endif %}
+
+    <!-- ДЛЯ НЕАВТОРИЗОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ -->
+    {% if not user.is_authenticated %}
+        <!-- Ссылка на регистрацию -->
+        <a href="{% url 'users:register' %}" class="btn-register">Регистрация</a>
+
+        <!-- Ссылка на вход -->
+        <a href="{% url 'users:login' %}" class="btn-login">Войти</a>
+
+    <!-- ДЛЯ АВТОРИЗОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ -->
+    {% else %}
+        <!-- Нормальный логотип/аватар профиля -->
+        <a href="{% url 'users:profile' %}" class="profile-logo">
+            {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" alt="{{ user.username }}" class="profile-avatar">
+            {% else %}
+                <div class="profile-avatar-placeholder">
+                    {{ user.first_name|first|upper }}{{ user.last_name|first|upper }}
+                </div>
+            {% endif %}
+        </a>
+    {% endif %}
+</div>
     </header>
 
     <!-- БОКОВАЯ ПАНЕЛЬ (обновленная) -->

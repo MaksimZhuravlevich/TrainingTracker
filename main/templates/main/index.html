@@ -1,11 +1,132 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Главная - FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="home-container">
+    <!-- 1. ПРИВЕТСТВИЕ И СТАТУС -->
+    <section class="welcome-section">
+        <h1>
+            {% if user.is_authenticated %}
+                С возвращением, {{ user.first_name }}! 👋
+            {% else %}
+                Добро пожаловать в FitTrack! 💪
+            {% endif %}
+        </h1>
+        <p class="subtitle">Твой персональный помощник в мире фитнеса</p>
+    </section>
 
+    <!-- 2. ПОЧЕМУ ВАЖНО ЗАНИМАТЬСЯ СПОРТОМ -->
+    <section class="why-exercise">
+        <h2>🏆 Почему спорт — это важно?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">❤️</div>
+                <h3>Здоровье сердца</h3>
+                <p>Регулярные тренировки укрепляют сердечно-сосудистую систему и снижают риск заболеваний на 30%</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🧠</div>
+                <h3>Ясность ума</h3>
+                <p>Физическая активность улучшает память, концентрацию и снижает уровень стресса</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>Энергия</h3>
+                <p>Спорт заряжает энергией на весь день и борется с хронической усталостью</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">😊</div>
+                <h3>Настроение</h3>
+                <p>Выработка эндорфинов во время тренировок дарит чувство счастья и удовлетворения</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">💪</div>
+                <h3>Сила и выносливость</h3>
+                <p>Укрепление мышц и суставов помогает в повседневной жизни и предотвращает травмы</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">😴</div>
+                <h3>Качественный сон</h3>
+                <p>Регулярные нагрузки помогают быстрее засыпать и улучшают качество сна</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. МОТИВАЦИОННЫЕ ЦИТАТЫ -->
+    <section class="quotes-section">
+        <h2>✨ Мотивация на каждый день</h2>
+        <div class="quotes-grid">
+            <div class="quote-card">
+                <i class="fas fa-quote-left"></i>
+                <p>"Тело достигает того, во что верит разум."</p>
+
+            </div>
+
+            <div class="quote-card">
+                <i class="fas fa-quote-left"></i>
+                <p>"Единственная плохая тренировка — та, которая не состоялась."</p>
+
+            </div>
+
+            <div class="quote-card">
+                <i class="fas fa-quote-left"></i>
+                <p>"Ты не обязан быть великим, чтобы начать. Но ты должен начать, чтобы стать великим."</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ИНТЕРЕСНЫЕ ФАКТЫ О СПОРТЕ -->
+    <section class="facts-section">
+        <h2>📊 Знаешь ли ты?</h2>
+        <div class="facts-grid">
+            <div class="fact-card">
+                <span class="fact-number">1</span>
+                <p>Всего 30 минут умеренной активности в день снижают риск сердечных заболеваний на 40%</p>
+            </div>
+
+            <div class="fact-card">
+                <span class="fact-number">2</span>
+                <p>Регулярные тренировки повышают продуктивность на 15% и улучшают память</p>
+            </div>
+
+            <div class="fact-card">
+                <span class="fact-number">3</span>
+                <p>Спорт снижает риск депрессии на 30% эффективнее некоторых лекарств</p>
+            </div>
+
+            <div class="fact-card">
+                <span class="fact-number">4</span>
+                <p>После тренировки организм продолжает сжигать калории до 24 часов</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. СОВЕТ ДНЯ -->
+    <section class="tip-of-day">
+        <h2>💡 Совет дня</h2>
+        <div class="tip-card">
+            <p>Начинай с малого: 15 минут тренировки сегодня лучше, чем 2 часа, которые ты откладываешь на завтра. Главное — регулярность, а не интенсивность!</p>
+        </div>
+    </section>
+
+    <!-- 6. ДЛЯ НЕАВТОРИЗОВАННЫХ - ПРИЗЫВ К РЕГИСТРАЦИИ -->
+    {% if not user.is_authenticated %}
+    <section class="cta-section">
+        <h2>Начни свой путь к здоровому телу прямо сейчас!</h2>
+        <p>Присоединяйся к сообществу FitTrack и начни отслеживать свой прогресс уже сегодня</p>
+        <div class="cta-buttons">
+            <a href="{% url 'users:register' %}" class="btn-primary">Зарегистрироваться</a>
+            <a href="{% url 'users:login' %}" class="btn-secondary">Войти</a>
+        </div>
+    </section>
+    {% endif %}
+</div>
 {% endblock %}

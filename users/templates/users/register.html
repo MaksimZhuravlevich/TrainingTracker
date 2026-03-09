@@ -61,5 +61,14 @@
         </div>
         <button type="submit">Create</button>
         <a href="{% url 'users:login' %}" class="link">Already registered? Log in</a>
+        <div class="auth-container">
+        <!-- Кнопка "На главную" вверху -->
+        <div class="back-to-home">
+            <a href="{% url 'home' %}" class="back-button">
+                <i class="fas fa-arrow-left"></i> На главную
+            </a>
+        </div>
+
+
     </form>
 {% endblock %}

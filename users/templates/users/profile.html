@@ -17,4 +17,13 @@
         <div id="account-details-content"></div>
     </div>
     <a href="{% url 'users:logout' %}" class="link">Log Out</a>
+    <div class="auth-container">
+            <!-- Кнопка "На главную" вверху -->
+            <div class="back-to-home">
+                <a href="{% url 'home' %}" class="back-button">
+                    <i class="fas fa-arrow-left"></i> На главную
+                </a>
+            </div>
+
+
 {% endblock %}
