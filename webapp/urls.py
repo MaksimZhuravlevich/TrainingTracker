@@ -9,4 +9,5 @@ urlpatterns = [
     path('core/', include('core.urls')),  # без namespace
     path('nutrition/', include('nutrition.urls')),  # без namespace
     path('users/', include(('users.urls', 'users'), namespace='users')),  # ТОЛЬКО users с namespace!
+    path('generators/', include(('generators.urls', 'generators'), namespace='generators')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

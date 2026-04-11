@@ -36,6 +36,10 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
+    'analytics',
+    'exercises',
+    'programs',
+    'generators',
     'core',
     'users',
     'nutrition',

@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}История тренировок{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Мои тренировки</h1>
+    
+    {% if workouts %}
+        <ul>
+        {% for workout in workouts %}
+            <li>
+                <a href="{% url 'generators:workout_detail' workout.id %}">
+                    {{ workout.workout.name }} - {{ workout.date }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>У вас пока нет тренировок.</p>
+        <a href="{% url 'generators:choose_sport' %}">Создать первую тренировку</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, \
     BaseUserManager
 from django.utils.html import strip_tags
-
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 
 class CustomUserManager(BaseUserManager):
     def create_user(self,email,first_name,last_name,password=None,**extra_fields):
@@ -38,6 +39,23 @@ class CustomUser(AbstractUser):
     phone = models.CharField(max_length=15,blank=True,null=True)
     marketing_consent1=models.BooleanField(default=False)
     marketing_consent2 = models.BooleanField(default=False)
+
+    male = models.CharField(
+        max_length=20,
+        choices=[('male', 'Мужчина'), ('female', 'Женщина')],
+        default='male'  # ← ЭТОГО НЕТ!
+    )
+    user_age = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        validators=[MinValueValidator(1), MaxValueValidator(120)]
+    )
+    user_weight = models.PositiveIntegerField(blank=True, null=True,
+                                validators=[MinValueValidator(30), MaxValueValidator(200)])
+    user_height = models.PositiveIntegerField(blank=True, null=True,
+                                validators=[MinValueValidator(140), MaxValueValidator(220)])
+
+
 
     username=models.CharField(max_length=150,unique=True,null=True,blank=True)
 

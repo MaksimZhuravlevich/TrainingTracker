@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Выбор спорта{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Выберите спортивное направление</h1>
+
+    <form method="post" action="/generators/fill-data/">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="sport_type">Вид спорта:</label>
+            <select name="sport_type" id="sport_type" class="form-control" required>
+                <option value="">-- Выберите --</option>
+                {% for key, value in sport_types %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Далее</button>
+    </form>
+</div>
+{% endblock %}
