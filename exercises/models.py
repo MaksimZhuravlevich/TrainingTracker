@@ -21,5 +21,15 @@ class Exercise(models.Model):
         null=True,
         blank=True
     )
+    progression_type = models.CharField(
+        max_length=20,
+        choices=[
+            ('weight', 'Увеличение веса'),
+            ('reps', 'Увеличение повторений'),
+        ],
+        default='weight'
+    )
+    progression_delta = models.FloatField(default=2.5)  # на сколько увеличивать
+    progression_frequency = models.IntegerField(default=3)  # через сколько успешных тренировок
     def __str__(self):
         return self.name

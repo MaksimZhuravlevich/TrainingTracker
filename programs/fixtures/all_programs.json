@@ -1,0 +1,647 @@
+[
+  {
+    "model": "programs.trainingprogram",
+    "pk": 1,
+    "fields": {
+      "user": null,
+      "sport_type": "fitness",
+      "experience": "beginner",
+      "name": "Fitness для начинающих (4 недели)",
+      "weeks": 4,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 2,
+    "fields": {
+      "user": null,
+      "sport_type": "fitness",
+      "experience": "middle",
+      "name": "Fitness средний уровень (6 недель)",
+      "weeks": 6,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 3,
+    "fields": {
+      "user": null,
+      "sport_type": "fitness",
+      "experience": "pro",
+      "name": "Fitness продвинутый (8 недель)",
+      "weeks": 8,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 4,
+    "fields": {
+      "user": null,
+      "sport_type": "powerlifting",
+      "experience": "beginner",
+      "name": "Пауэрлифтинг для начинающих (6 недель)",
+      "weeks": 6,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 5,
+    "fields": {
+      "user": null,
+      "sport_type": "powerlifting",
+      "experience": "middle",
+      "name": "Пауэрлифтинг средний уровень (8 недель)",
+      "weeks": 8,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 6,
+    "fields": {
+      "user": null,
+      "sport_type": "powerlifting",
+      "experience": "pro",
+      "name": "Пауэрлифтинг продвинутый (12 недель)",
+      "weeks": 12,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 7,
+    "fields": {
+      "user": null,
+      "sport_type": "crossfit",
+      "experience": "beginner",
+      "name": "CrossFit для начинающих (6 недель)",
+      "weeks": 6,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 8,
+    "fields": {
+      "user": null,
+      "sport_type": "crossfit",
+      "experience": "middle",
+      "name": "CrossFit средний уровень (8 недель)",
+      "weeks": 8,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 9,
+    "fields": {
+      "user": null,
+      "sport_type": "crossfit",
+      "experience": "pro",
+      "name": "CrossFit продвинутый (10 недель)",
+      "weeks": 10,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 10,
+    "fields": {
+      "user": null,
+      "sport_type": "weightlifting",
+      "experience": "beginner",
+      "name": "Тяжелая атлетика для начинающих (8 недель)",
+      "weeks": 8,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 11,
+    "fields": {
+      "user": null,
+      "sport_type": "weightlifting",
+      "experience": "middle",
+      "name": "Тяжелая атлетика средний уровень (10 недель)",
+      "weeks": 10,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 12,
+    "fields": {
+      "user": null,
+      "sport_type": "athletics",
+      "experience": "beginner",
+      "name": "Легкая атлетика для начинающих (6 недель)",
+      "weeks": 6,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 13,
+    "fields": {
+      "user": null,
+      "sport_type": "athletics",
+      "experience": "middle",
+      "name": "Легкая атлетика средний уровень (8 недель)",
+      "weeks": 8,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 14,
+    "fields": {
+      "user": null,
+      "sport_type": "keeping_form",
+      "experience": "beginner",
+      "name": "Поддержание формы для начинающих (4 недели)",
+      "weeks": 4,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 15,
+    "fields": {
+      "user": null,
+      "sport_type": "keeping_form",
+      "experience": "middle",
+      "name": "Поддержание формы средний уровень (6 недель)",
+      "weeks": 6,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 1,
+    "fields": {
+      "program": 1,
+      "name": "Fitness Новичок: День 1 (Верх тела)",
+      "day_number": 1,
+      "notes": "Акцент на грудные и плечевые мышцы"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 2,
+    "fields": {
+      "program": 1,
+      "name": "Fitness Новичок: День 2 (Низ тела)",
+      "day_number": 2,
+      "notes": "Акцент на ноги и ягодицы"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 3,
+    "fields": {
+      "program": 1,
+      "name": "Fitness Новичок: День 3 (Кардио + Пресс)",
+      "day_number": 3,
+      "notes": "Акцент на выносливость и кор"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 4,
+    "fields": {
+      "program": 2,
+      "name": "Fitness Средний: День 1 (Грудь + Трицепс)",
+      "day_number": 1,
+      "notes": "Интенсивная тренировка груди и трицепса"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 5,
+    "fields": {
+      "program": 2,
+      "name": "Fitness Средний: День 2 (Спина + Бицепс)",
+      "day_number": 2,
+      "notes": "Интенсивная тренировка спины и бицепса"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 6,
+    "fields": {
+      "program": 2,
+      "name": "Fitness Средний: День 3 (Ноги + Плечи)",
+      "day_number": 3,
+      "notes": "Интенсивная тренировка ног и плеч"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 7,
+    "fields": {
+      "program": 3,
+      "name": "Fitness Продвинутый: День 1 (Грудь)",
+      "day_number": 1,
+      "notes": "Продвинутая тренировка груди"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 8,
+    "fields": {
+      "program": 3,
+      "name": "Fitness Продвинутый: День 2 (Спина)",
+      "day_number": 2,
+      "notes": "Продвинутая тренировка спины"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 9,
+    "fields": {
+      "program": 3,
+      "name": "Fitness Продвинутый: День 3 (Ноги)",
+      "day_number": 3,
+      "notes": "Продвинутая тренировка ног"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 10,
+    "fields": {
+      "program": 4,
+      "name": "Пауэрлифтинг Новичок: День 1 (Приседания)",
+      "day_number": 1,
+      "notes": "Фокус на технику приседаний"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 11,
+    "fields": {
+      "program": 4,
+      "name": "Пауэрлифтинг Новичок: День 2 (Жим лёжа)",
+      "day_number": 2,
+      "notes": "Фокус на технику жима"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 12,
+    "fields": {
+      "program": 4,
+      "name": "Пауэрлифтинг Новичок: День 3 (Становая тяга)",
+      "day_number": 3,
+      "notes": "Фокус на технику становой"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 13,
+    "fields": {
+      "program": 5,
+      "name": "Пауэрлифтинг Средний: День 1 (Приседания + подсобка)",
+      "day_number": 1,
+      "notes": "Приседания с дополнительными упражнениями"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 14,
+    "fields": {
+      "program": 5,
+      "name": "Пауэрлифтинг Средний: День 2 (Жим + подсобка)",
+      "day_number": 2,
+      "notes": "Жим с дополнительными упражнениями"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 15,
+    "fields": {
+      "program": 5,
+      "name": "Пауэрлифтинг Средний: День 3 (Становая + подсобка)",
+      "day_number": 3,
+      "notes": "Становая с дополнительными упражнениями"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 16,
+    "fields": {
+      "program": 6,
+      "name": "Пауэрлифтинг Продвинутый: День 1 (Приседания)",
+      "day_number": 1,
+      "notes": "Продвинутая техника приседаний"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 17,
+    "fields": {
+      "program": 6,
+      "name": "Пауэрлифтинг Продвинутый: День 2 (Жим)",
+      "day_number": 2,
+      "notes": "Продвинутая техника жима"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 18,
+    "fields": {
+      "program": 6,
+      "name": "Пауэрлифтинг Продвинутый: День 3 (Становая)",
+      "day_number": 3,
+      "notes": "Продвинутая техника становой"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 19,
+    "fields": {
+      "program": 7,
+      "name": "CrossFit Новичок: День 1 (Силовая база)",
+      "day_number": 1,
+      "notes": "Изучение базовых движений"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 20,
+    "fields": {
+      "program": 7,
+      "name": "CrossFit Новичок: День 2 (WOD)",
+      "day_number": 2,
+      "notes": "Простой функциональный комплекс"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 21,
+    "fields": {
+      "program": 7,
+      "name": "CrossFit Новичок: День 3 (Гимнастика)",
+      "day_number": 3,
+      "notes": "Техника гимнастических элементов"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 22,
+    "fields": {
+      "program": 8,
+      "name": "CrossFit Средний: День 1 (Тяжёлый WOD)",
+      "day_number": 1,
+      "notes": "Интенсивный функциональный комплекс"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 23,
+    "fields": {
+      "program": 8,
+      "name": "CrossFit Средний: День 2 (Технический день)",
+      "day_number": 2,
+      "notes": "Отработка сложных элементов"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 24,
+    "fields": {
+      "program": 8,
+      "name": "CrossFit Средний: День 3 (EMOM)",
+      "day_number": 3,
+      "notes": "Работа на время и выносливость"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 25,
+    "fields": {
+      "program": 9,
+      "name": "CrossFit Продвинутый: День 1 (Чемпионский WOD)",
+      "day_number": 1,
+      "notes": "Максимальная интенсивность"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 26,
+    "fields": {
+      "program": 9,
+      "name": "CrossFit Продвинутый: День 2 (Специализация)",
+      "day_number": 2,
+      "notes": "Фокус на слабые стороны"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 27,
+    "fields": {
+      "program": 9,
+      "name": "CrossFit Продвинутый: День 3 (Соревновательный WOD)",
+      "day_number": 3,
+      "notes": "Подготовка к соревнованиям"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 28,
+    "fields": {
+      "program": 10,
+      "name": "Тяжёлая атлетика Новичок: День 1 (Рывок)",
+      "day_number": 1,
+      "notes": "Техника рывка"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 29,
+    "fields": {
+      "program": 10,
+      "name": "Тяжёлая атлетика Новичок: День 2 (Толчок)",
+      "day_number": 2,
+      "notes": "Техника толчка"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 30,
+    "fields": {
+      "program": 10,
+      "name": "Тяжёлая атлетика Новичок: День 3 (Подсобка)",
+      "day_number": 3,
+      "notes": "Вспомогательные упражнения"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 31,
+    "fields": {
+      "program": 11,
+      "name": "Тяжёлая атлетика Средний: День 1 (Рывок + подсобка)",
+      "day_number": 1,
+      "notes": "Рывок с подсобкой"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 32,
+    "fields": {
+      "program": 11,
+      "name": "Тяжёлая атлетика Средний: День 2 (Толчок + подсобка)",
+      "day_number": 2,
+      "notes": "Толчок с подсобкой"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 33,
+    "fields": {
+      "program": 11,
+      "name": "Тяжёлая атлетика Средний: День 3 (Соревновательный день)",
+      "day_number": 3,
+      "notes": "Работа на максимум"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 34,
+    "fields": {
+      "program": 12,
+      "name": "Легкая атлетика Новичок: День 1 (Бег)",
+      "day_number": 1,
+      "notes": "Техника бега"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 35,
+    "fields": {
+      "program": 12,
+      "name": "Легкая атлетика Новичок: День 2 (Прыжки)",
+      "day_number": 2,
+      "notes": "Техника прыжков"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 36,
+    "fields": {
+      "program": 12,
+      "name": "Легкая атлетика Новичок: День 3 (Метания)",
+      "day_number": 3,
+      "notes": "Техника метаний"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 37,
+    "fields": {
+      "program": 13,
+      "name": "Легкая атлетика Средний: День 1 (Интервальный бег)",
+      "day_number": 1,
+      "notes": "Интервальные забеги"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 38,
+    "fields": {
+      "program": 13,
+      "name": "Легкая атлетика Средний: День 2 (Специальные прыжки)",
+      "day_number": 2,
+      "notes": "Специальные прыжковые упражнения"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 39,
+    "fields": {
+      "program": 13,
+      "name": "Легкая атлетика Средний: День 3 (Техническая подготовка)",
+      "day_number": 3,
+      "notes": "Отработка техники"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 40,
+    "fields": {
+      "program": 14,
+      "name": "Поддержание формы: День 1 (Общая разминка)",
+      "day_number": 1,
+      "notes": "Поддержание тонуса"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 41,
+    "fields": {
+      "program": 14,
+      "name": "Поддержание формы: День 2 (Кардио)",
+      "day_number": 2,
+      "notes": "Здоровье сердца"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 42,
+    "fields": {
+      "program": 14,
+      "name": "Поддержание формы: День 3 (Растяжка)",
+      "day_number": 3,
+      "notes": "Гибкость и восстановление"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 43,
+    "fields": {
+      "program": 15,
+      "name": "Поддержание формы Средний: День 1 (Силовая)",
+      "day_number": 1,
+      "notes": "Поддержание силы"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 44,
+    "fields": {
+      "program": 15,
+      "name": "Поддержание формы Средний: День 2 (Интервалы)",
+      "day_number": 2,
+      "notes": "Интервальная тренировка"
+    }
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 45,
+    "fields": {
+      "program": 15,
+      "name": "Поддержание формы Средний: День 3 (Функциональный тренинг)",
+      "day_number": 3,
+      "notes": "Развитие функциональных качеств"
+    }
+  }
+]

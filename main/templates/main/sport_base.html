@@ -1,0 +1,179 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} - FitTrack{% endblock %}
+
+{% block content %}
+<div class="sport-page">
+    
+    <!-- Кнопка назад -->
+    <div class="back-link">
+        <a href="{% url 'type' %}" class="btn-back">
+            ← Назад к спортивным направлениям
+        </a>
+    </div>
+
+    <!-- Заголовок -->
+    <div class="sport-header">
+        <h1>{{ title }}</h1>
+        <div class="header-line"></div>
+    </div>
+
+    <!-- Краткое описание -->
+    <div class="sport-description">
+        <p>{{ description }}</p>
+    </div>
+
+    <!-- Основные преимущества -->
+    <div class="sport-section">
+        <h2>Основные преимущества</h2>
+        <ul class="benefits-list">
+            {% for benefit in benefits %}
+            <li>{{ benefit }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Для кого подходит -->
+    <div class="sport-section">
+        <h2>Для кого подходит</h2>
+        <ul class="audience-list">
+            {% for audience in audience_list %}
+            <li>{{ audience }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Что входит в тренировки -->
+    <div class="sport-section">
+        <h2>Что входит в тренировки</h2>
+        <ul class="workout-list">
+            {% for item in workout_content %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Кнопка создания программы -->
+    <div class="create-program-section">
+        <a href="{% url 'generators:choose_sport' %}?sport={{ sport_key }}" class="btn-create-program">
+            Создать программу тренировок
+        </a>
+    </div>
+
+</div>
+
+<style>
+    .sport-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    
+    .back-link {
+        margin-bottom: 30px;
+    }
+    
+    .btn-back {
+        display: inline-block;
+        color: #aaa;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.2s ease;
+    }
+    
+    .btn-back:hover {
+        color: #2d6a4f;
+    }
+    
+    .sport-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .sport-header h1 {
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+    
+    .header-line {
+        width: 60px;
+        height: 3px;
+        background: #2d6a4f;
+        margin: 0 auto;
+    }
+    
+    .sport-description {
+        background: #1e1e1e;
+        border-left: 4px solid #2d6a4f;
+        padding: 20px 25px;
+        margin-bottom: 40px;
+        border-radius: 8px;
+    }
+    
+    .sport-description p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #ccc;
+        margin: 0;
+    }
+    
+    .sport-section {
+        margin-bottom: 35px;
+    }
+    
+    .sport-section h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #fff;
+        border-bottom: 1px solid #333;
+        padding-bottom: 8px;
+    }
+    
+    .sport-section ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .sport-section li {
+        padding: 8px 0 8px 25px;
+        position: relative;
+        color: #ccc;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .sport-section li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: #2d6a4f;
+    }
+    
+    .create-program-section {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #333;
+    }
+    
+    .btn-create-program {
+        display: inline-block;
+        padding: 14px 32px;
+        background: #2d6a4f;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+    
+    .btn-create-program:hover {
+        background: #1e4f3a;
+    }
+</style>
+{% endblock %}

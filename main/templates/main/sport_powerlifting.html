@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Пауэрлифтинг - FitTrack{% endblock %}
+
+{% block content %}
+<div class="sport-page">
+    <div class="back-link">
+        <a href="{% url 'type' %}" class="btn-back">← Назад к спортивным направлениям</a>
+    </div>
+    
+    <div class="sport-header">
+        <h1>Пауэрлифтинг</h1>
+        <div class="header-line"></div>
+    </div>
+
+    <div class="sport-description">
+        <p>Пауэрлифтинг — это силовой вид спорта, также известный как троеборье. Соревнования включают три упражнения: приседания со штангой, жим штанги лежа и становую тягу. Главная цель — поднять максимальный вес в каждом из этих движений.</p>
+    </div>
+
+    <div class="sport-section">
+        <h2>Основные преимущества</h2>
+        <ul>
+            <li>Развитие максимальной силы и мощности</li>
+            <li>Укрепление костно-мышечной системы</li>
+            <li>Улучшение работы центральной нервной системы</li>
+            <li>Формирование атлетической фигуры</li>
+            <li>Развитие дисциплины и ментальной выносливости</li>
+        </ul>
+    </div>
+
+    <div class="sport-section">
+        <h2>Для кого подходит</h2>
+        <ul>
+            <li>Для тех, кто хочет стать сильнее</li>
+            <li>Для любителей тяжелых весов</li>
+            <li>Для желающих улучшить свою физическую форму</li>
+            <li>Для мужчин и женщин, готовых к серьезным нагрузкам</li>
+        </ul>
+    </div>
+
+    <div class="sport-section">
+        <h2>Что входит в тренировки</h2>
+        <ul>
+            <li>Приседания со штангой на спине</li>
+            <li>Жим штанги лежа на горизонтальной скамье</li>
+            <li>Становая тяга (классическая или сумо)</li>
+            <li>Вспомогательные упражнения для укрепления мышц кора</li>
+            <li>Подсобные упражнения для развития слабых мест</li>
+        </ul>
+    </div>
+
+    <div class="create-program-section">
+        <a href="{% url 'generators:choose_sport' %}?sport=powerlifting" class="btn-create-program">
+            Создать программу тренировок
+        </a>
+    </div>
+</div>
+
+<style>
+    .sport-page { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+    .back-link { margin-bottom: 30px; }
+    .btn-back { display: inline-block; color: #aaa; text-decoration: none; font-size: 14px; }
+    .btn-back:hover { color: #2d6a4f; }
+    .sport-header { text-align: center; margin-bottom: 30px; }
+    .sport-header h1 { font-size: 36px; margin-bottom: 15px; color: #fff; }
+    .header-line { width: 60px; height: 3px; background: #2d6a4f; margin: 0 auto; }
+    .sport-description { background: #1e1e1e; border-left: 4px solid #2d6a4f; padding: 20px 25px; margin-bottom: 40px; border-radius: 8px; }
+    .sport-description p { font-size: 16px; line-height: 1.6; color: #ccc; margin: 0; }
+    .sport-section { margin-bottom: 35px; }
+    .sport-section h2 { font-size: 24px; margin-bottom: 15px; color: #fff; border-bottom: 1px solid #333; padding-bottom: 8px; }
+    .sport-section ul { list-style: none; padding: 0; }
+    .sport-section li { padding: 8px 0 8px 25px; position: relative; color: #ccc; }
+    .sport-section li::before { content: "—"; position: absolute; left: 0; color: #2d6a4f; }
+    .create-program-section { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; }
+    .btn-create-program { display: inline-block; padding: 14px 32px; background: #2d6a4f; color: white; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 8px; }
+    .btn-create-program:hover { background: #1e4f3a; }
+</style>
+{% endblock %}

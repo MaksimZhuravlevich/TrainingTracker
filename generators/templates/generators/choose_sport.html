@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Выберите спортивное направление</h1>
 
-    <form method="post" action="/generators/fill-data/">
+    <form method="post">  <!-- ← action удалён -->
         {% csrf_token %}
 
         <div class="form-group">

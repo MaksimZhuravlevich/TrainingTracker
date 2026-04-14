@@ -1,0 +1,311 @@
+[
+  {
+    "model": "exercises.musclegroup",
+    "pk": 1,
+    "fields": {
+      "name": "Грудь"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 2,
+    "fields": {
+      "name": "Спина"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 3,
+    "fields": {
+      "name": "Ноги"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 4,
+    "fields": {
+      "name": "Плечи"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 5,
+    "fields": {
+      "name": "Бицепс"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 6,
+    "fields": {
+      "name": "Трицепс"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 7,
+    "fields": {
+      "name": "Пресс"
+    }
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 8,
+    "fields": {
+      "name": "Кардио"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 1,
+    "fields": {
+      "name": "Штанга"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 2,
+    "fields": {
+      "name": "Гантели"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 3,
+    "fields": {
+      "name": "Турник"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 4,
+    "fields": {
+      "name": "Скамья"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 5,
+    "fields": {
+      "name": "Коврик"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 6,
+    "fields": {
+      "name": "Резинки"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 7,
+    "fields": {
+      "name": "Скакалка"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 8,
+    "fields": {
+      "name": "Стойка для приседа"
+    }
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 9,
+    "fields": {
+      "name": "Тяга верхнего блока"
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 1,
+    "fields": {
+      "name": "Жим штанги лежа",
+      "description": "Базовое упражнение для грудных мышц. Лягте на скамью, опускайте штангу к груди, затем выжимайте вверх.",
+      "muscles": [1, 4, 6],
+      "equipment": 1
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 2,
+    "fields": {
+      "name": "Приседания со штангой",
+      "description": "Базовое упражнение для ног. Держите штангу на плечах, приседайте до параллели бедра с полом.",
+      "muscles": [3],
+      "equipment": 1
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 3,
+    "fields": {
+      "name": "Становая тяга",
+      "description": "Базовое упражнение для спины и ног. Наклонитесь к штанге, держа спину прямой, поднимите её.",
+      "muscles": [2, 3],
+      "equipment": 1
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 4,
+    "fields": {
+      "name": "Подтягивания",
+      "description": "Упражнение для спины и бицепса. Повисните на турнике, подтягивайтесь вверх.",
+      "muscles": [2, 5],
+      "equipment": 3
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 5,
+    "fields": {
+      "name": "Отжимания от пола",
+      "description": "Базовое упражнение с весом тела. Примите упор лёжа, опускайте грудь к полу.",
+      "muscles": [1, 4, 6],
+      "equipment": null
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 6,
+    "fields": {
+      "name": "Тяга гантели в наклоне",
+      "description": "Упражнение для спины. Обопритесь на скамью, тяните гантель к поясу.",
+      "muscles": [2, 5],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 7,
+    "fields": {
+      "name": "Жим гантелей лежа",
+      "description": "Упражнение для грудных мышц. Лежа на скамье, выжимайте гантели вверх.",
+      "muscles": [1, 4],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 8,
+    "fields": {
+      "name": "Выпады с гантелями",
+      "description": "Упражнение для ног и ягодиц. Делайте шаг вперёд, сгибая колено.",
+      "muscles": [3],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 9,
+    "fields": {
+      "name": "Жим штанги стоя",
+      "description": "Упражнение для плеч. Стоя, выжимайте штангу над головой.",
+      "muscles": [4, 6],
+      "equipment": 1
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 10,
+    "fields": {
+      "name": "Разведение гантелей в стороны",
+      "description": "Упражнение для дельт. Стоя, поднимайте гантели в стороны.",
+      "muscles": [4],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 11,
+    "fields": {
+      "name": "Подъем гантелей на бицепс",
+      "description": "Упражнение для бицепса. Стоя, поднимайте гантели к плечам.",
+      "muscles": [5],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 12,
+    "fields": {
+      "name": "Французский жим",
+      "description": "Упражнение для трицепса. Лёжа, опускайте гантель за голову.",
+      "muscles": [6],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 13,
+    "fields": {
+      "name": "Скручивания на пресс",
+      "description": "Упражнение для пресса. Лёжа на спине, приподнимайте плечи.",
+      "muscles": [7],
+      "equipment": 5
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 14,
+    "fields": {
+      "name": "Планка",
+      "description": "Статическое упражнение для корпуса. Держите тело прямым.",
+      "muscles": [7, 2],
+      "equipment": 5
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 15,
+    "fields": {
+      "name": "Гиперэкстензия",
+      "description": "Упражнение для разгибателей спины. Наклоняйтесь в тренажёре.",
+      "muscles": [2, 3],
+      "equipment": null
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 16,
+    "fields": {
+      "name": "Прыжки со скакалкой",
+      "description": "Кардио-упражнение. Прыгайте через вращающуюся скакалку.",
+      "muscles": [8, 3],
+      "equipment": 7
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 17,
+    "fields": {
+      "name": "Тяга верхнего блока к груди",
+      "description": "Упражнение для спины. Тяните рукоятку к груди.",
+      "muscles": [2, 5],
+      "equipment": 9
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 18,
+    "fields": {
+      "name": "Болгарские выпады",
+      "description": "Упражнение для ног. Задняя нога на возвышении.",
+      "muscles": [3],
+      "equipment": 2
+    }
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 19,
+    "fields": {
+      "name": "Обратные отжимания от скамьи",
+      "description": "Упражнение для трицепса. Руки на скамье, спина прямая.",
+      "muscles": [6],
+      "equipment": 4
+    }
+  }
+]

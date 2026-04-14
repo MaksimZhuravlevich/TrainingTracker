@@ -17,9 +17,11 @@ def choose_sport(request):
 
     if request.method == 'POST':
         sport = request.POST.get('sport_type')
+        print(f"Выбран спорт: {sport}")  # ← отладка
         if sport:
             request.session['selected_sport'] = sport
-            return redirect('fill_data')
+            print(f"Сессия после сохранения: {request.session.items()}")  # ← отладка
+            return redirect('/generators/fill-data/')
         else:
             messages.error(request, 'Пожалуйста, выберите вид спорта')
 
@@ -30,12 +32,14 @@ def choose_sport(request):
 
 @login_required
 def fill_data(request):
+    print("=== fill_data START ===")
     user = request.user
     sport = request.session.get('selected_sport')
+    print(f"Спорт из сессии: {sport}")
 
     if not sport:
         messages.warning(request, 'Сначала выберите вид спорта')
-        return redirect('choose_sport')
+        return redirect('/generators/choose-sport/')  # ← абсолютный путь
 
     programs = TrainingProgram.objects.filter(
         sport_type=sport,
@@ -44,7 +48,7 @@ def fill_data(request):
 
     if not programs.exists():
         messages.error(request, f'Нет программ для вида спорта "{sport}"')
-        return redirect('choose_sport')
+        return redirect('/generators/choose-sport/')  # ← абсолютный путь
 
     exercise_ids = ProgramExercise.objects.filter(
         workout__program__in=programs
@@ -52,28 +56,21 @@ def fill_data(request):
 
     exercises = Exercise.objects.filter(id__in=exercise_ids)
 
-    # Если нет упражнений в программах, берём все упражнения для теста
     if exercises.count() == 0:
         exercises = Exercise.objects.all()[:10]
 
-    # Проверяем, есть ли сохранённые веса
     has_maxes = ExerciseMax.objects.filter(user=user).exists()
-
-    # Определяем, показывать ли форму ввода весов
     show_maxes_form = 'edit_maxes' in request.POST or not has_maxes
 
     if request.method == 'POST':
         phys_form = UserPhysicalDataForm(request.POST, instance=user)
         max_form = ExerciseMaxForm(request.POST, exercises=exercises)
 
-        # Если пользователь нажал "Оставить как есть" — пропускаем сохранение весов
         if 'keep_maxes' in request.POST:
-            # Переходим к генерации тренировки
             pass
         elif phys_form.is_valid() and max_form.is_valid():
             phys_form.save()
 
-            # Сохраняем максимальные веса
             for exercise in exercises:
                 weight = max_form.cleaned_data.get(f'max_{exercise.id}')
                 reps = max_form.cleaned_data.get(f'reps_{exercise.id}')
@@ -97,11 +94,10 @@ def fill_data(request):
                 'exercises_with_maxes': ExerciseMax.objects.filter(user=user).select_related('exercise'),
             })
 
-        # ========== ГЕНЕРАЦИЯ ТРЕНИРОВКИ ==========
         program = select_program(sport, 'beginner')
         if not program:
             messages.error(request, 'Не найдена подходящая программа')
-            return redirect('choose_sport')
+            return redirect('/generators/choose-sport/')  # ← абсолютный путь
 
         day = request.session.get(f'workout_day_{program.id}', 1)
         workout_template = ProgramWorkout.objects.filter(
@@ -111,7 +107,7 @@ def fill_data(request):
 
         if not workout_template:
             messages.error(request, 'В программе нет тренировок')
-            return redirect('choose_sport')
+            return redirect('/generators/choose-sport/')  # ← абсолютный путь
 
         workout_log = generate_workout_log(user, program, workout_template)
 
@@ -123,10 +119,9 @@ def fill_data(request):
         request.session[f'workout_day_{program.id}'] = next_day if has_next else 1
 
         messages.success(request, 'Тренировка сгенерирована!')
-        return redirect(f'/generators/workout/{workout_log.id}/')
+        return redirect(f'/generators/workout/{workout_log.id}/')  # ← абсолютный путь
 
     else:
-        # GET запрос — показываем форму
         phys_form = UserPhysicalDataForm(instance=user)
 
         initial_data = {}
@@ -147,6 +142,7 @@ def fill_data(request):
         'show_maxes_form': show_maxes_form,
         'exercises_with_maxes': ExerciseMax.objects.filter(user=user).select_related('exercise'),
     })
+
 
 @login_required
 def workout_detail(request, workout_log_id):
@@ -177,7 +173,6 @@ def workout_history(request):
 
 @login_required
 def regenerate_workout(request, workout_log_id):
-    """Перегенерировать тренировку с новыми весами"""
     workout_log = get_object_or_404(
         WorkoutLog,
         id=workout_log_id,
@@ -207,12 +202,11 @@ def regenerate_workout(request, workout_log_id):
         )
 
     messages.success(request, 'Тренировка обновлена с учётом новых данных!')
-    return redirect('workout_detail', workout_log_id=workout_log.id)
+    return redirect(f'/generators/workout/{workout_log.id}/')  # ← абсолютный путь
 
 
 @login_required
 def delete_workout(request, workout_log_id):
-    """Удаление тренировки из истории"""
     workout_log = get_object_or_404(
         WorkoutLog,
         id=workout_log_id,
@@ -222,6 +216,21 @@ def delete_workout(request, workout_log_id):
     if request.method == 'POST':
         workout_log.delete()
         messages.success(request, 'Тренировка удалена')
-        return redirect('workout_history')
+        return redirect('/generators/history/')  # ← абсолютный путь
 
     return render(request, 'generators/confirm_delete.html', {'workout_log': workout_log})
+
+@login_required
+def workout_history(request):
+    workouts=WorkoutLog.objects.filter(user=request.user).order_by('date')
+    return render(request,'generators/workout_history.html',{'workouts':workouts})
+
+
+
+
+
+
+
+
+
+
