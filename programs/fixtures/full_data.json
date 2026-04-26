@@ -1,0 +1,517 @@
+[
+  {
+    "model": "exercises.musclegroup",
+    "pk": 1,
+    "fields": {"name": "Грудь"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 2,
+    "fields": {"name": "Спина"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 3,
+    "fields": {"name": "Ноги"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 4,
+    "fields": {"name": "Плечи"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 5,
+    "fields": {"name": "Бицепс"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 6,
+    "fields": {"name": "Трицепс"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 7,
+    "fields": {"name": "Пресс"}
+  },
+  {
+    "model": "exercises.musclegroup",
+    "pk": 8,
+    "fields": {"name": "Кардио"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 1,
+    "fields": {"name": "Штанга"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 2,
+    "fields": {"name": "Гантели"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 3,
+    "fields": {"name": "Турник"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 4,
+    "fields": {"name": "Скамья"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 5,
+    "fields": {"name": "Коврик"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 6,
+    "fields": {"name": "Резинки"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 7,
+    "fields": {"name": "Скакалка"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 8,
+    "fields": {"name": "Стойка для приседа"}
+  },
+  {
+    "model": "exercises.equipment",
+    "pk": 9,
+    "fields": {"name": "Тяга верхнего блока"}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 1,
+    "fields": {"name": "Жим штанги лежа", "description": "Базовое упражнение для грудных мышц", "muscles": [1,4,6], "equipment": 1}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 2,
+    "fields": {"name": "Приседания со штангой", "description": "Базовое упражнение для ног", "muscles": [3], "equipment": 1}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 3,
+    "fields": {"name": "Становая тяга", "description": "Базовое упражнение для спины и ног", "muscles": [2,3], "equipment": 1}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 4,
+    "fields": {"name": "Подтягивания", "description": "Упражнение для спины и бицепса", "muscles": [2,5], "equipment": 3}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 5,
+    "fields": {"name": "Отжимания от пола", "description": "Базовое упражнение с весом тела", "muscles": [1,4,6], "equipment": null}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 6,
+    "fields": {"name": "Тяга гантели в наклоне", "description": "Упражнение для спины", "muscles": [2,5], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 7,
+    "fields": {"name": "Жим гантелей лежа", "description": "Упражнение для грудных мышц", "muscles": [1,4], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 8,
+    "fields": {"name": "Выпады с гантелями", "description": "Упражнение для ног и ягодиц", "muscles": [3], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 9,
+    "fields": {"name": "Жим штанги стоя", "description": "Упражнение для плеч", "muscles": [4,6], "equipment": 1}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 10,
+    "fields": {"name": "Разведение гантелей в стороны", "description": "Упражнение для дельт", "muscles": [4], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 11,
+    "fields": {"name": "Подъем гантелей на бицепс", "description": "Упражнение для бицепса", "muscles": [5], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 12,
+    "fields": {"name": "Французский жим", "description": "Упражнение для трицепса", "muscles": [6], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 13,
+    "fields": {"name": "Скручивания на пресс", "description": "Упражнение для пресса", "muscles": [7], "equipment": 5}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 14,
+    "fields": {"name": "Планка", "description": "Статическое упражнение для корпуса", "muscles": [7,2], "equipment": 5}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 15,
+    "fields": {"name": "Гиперэкстензия", "description": "Упражнение для разгибателей спины", "muscles": [2,3], "equipment": null}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 16,
+    "fields": {"name": "Прыжки со скакалкой", "description": "Кардио-упражнение", "muscles": [8,3], "equipment": 7}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 17,
+    "fields": {"name": "Тяга верхнего блока к груди", "description": "Упражнение для спины", "muscles": [2,5], "equipment": 9}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 18,
+    "fields": {"name": "Болгарские выпады", "description": "Упражнение для ног", "muscles": [3], "equipment": 2}
+  },
+  {
+    "model": "exercises.exercise",
+    "pk": 19,
+    "fields": {"name": "Обратные отжимания от скамьи", "description": "Упражнение для трицепса", "muscles": [6], "equipment": 4}
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 1,
+    "fields": {"user": null, "sport_type": "fitness", "experience": "beginner", "name": "Фитнес для начинающих", "weeks": 4, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z"}
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 2,
+    "fields": {"user": null, "sport_type": "powerlifting", "experience": "beginner", "name": "Пауэрлифтинг для начинающих", "weeks": 6, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z"}
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 3,
+    "fields": {"user": null, "sport_type": "crossfit", "experience": "beginner", "name": "Кроссфит для начинающих", "weeks": 6, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z"}
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 4,
+    "fields": {"user": null, "sport_type": "weightlifting", "experience": "beginner", "name": "Тяжелая атлетика для начинающих", "weeks": 8, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z"}
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 5,
+    "fields": {"user": null, "sport_type": "athletics", "experience": "beginner", "name": "Легкая атлетика для начинающих", "weeks": 6, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z"}
+  },
+  {
+    "model": "programs.trainingprogram",
+    "pk": 6,
+    "fields": {"user": null, "sport_type": "keeping_form", "experience": "beginner", "name": "Поддержание формы", "weeks": 4, "created_at": "2024-01-01T00:00:00Z", "updated_at": "2024-01-01T00:00:00Z"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 1,
+    "fields": {"program": 1, "name": "Фитнес: День 1 (Верх тела)", "day_number": 1, "notes": "Отжимания, жим гантелей, подъем гантелей на бицепс"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 2,
+    "fields": {"program": 1, "name": "Фитнес: День 2 (Низ тела + пресс)", "day_number": 2, "notes": "Приседания, выпады, скручивания"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 3,
+    "fields": {"program": 1, "name": "Фитнес: День 3 (Кардио + планка)", "day_number": 3, "notes": "Прыжки со скакалкой, планка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 4,
+    "fields": {"program": 2, "name": "Пауэрлифтинг: День 1 (Приседания)", "day_number": 1, "notes": "Приседания со штангой + подсобка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 5,
+    "fields": {"program": 2, "name": "Пауэрлифтинг: День 2 (Жим лёжа)", "day_number": 2, "notes": "Жим штанги лёжа + подсобка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 6,
+    "fields": {"program": 2, "name": "Пауэрлифтинг: День 3 (Становая тяга)", "day_number": 3, "notes": "Становая тяга + подсобка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 7,
+    "fields": {"program": 3, "name": "Кроссфит: День 1 (WOD)", "day_number": 1, "notes": "Интенсивный функциональный комплекс"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 8,
+    "fields": {"program": 3, "name": "Кроссфит: День 2 (Гимнастика)", "day_number": 2, "notes": "Подтягивания, отжимания, выходы"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 9,
+    "fields": {"program": 3, "name": "Кроссфит: День 3 (Кардио)", "day_number": 3, "notes": "Бег, прыжки, скакалка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 10,
+    "fields": {"program": 4, "name": "Тяжелая атлетика: День 1 (Рывок)", "day_number": 1, "notes": "Рывок + подсобка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 11,
+    "fields": {"program": 4, "name": "Тяжелая атлетика: День 2 (Толчок)", "day_number": 2, "notes": "Толчок + подсобка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 12,
+    "fields": {"program": 4, "name": "Тяжелая атлетика: День 3 (Вспомогательная)", "day_number": 3, "notes": "Подсобные упражнения"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 13,
+    "fields": {"program": 5, "name": "Легкая атлетика: День 1 (Бег)", "day_number": 1, "notes": "Интервальный бег"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 14,
+    "fields": {"program": 5, "name": "Легкая атлетика: День 2 (Прыжки)", "day_number": 2, "notes": "Прыжки в длину, выпады"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 15,
+    "fields": {"program": 5, "name": "Легкая атлетика: День 3 (Метания)", "day_number": 3, "notes": "Метание набивного мяча, жим гантелей"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 16,
+    "fields": {"program": 6, "name": "Поддержание формы: День 1 (Силовая)", "day_number": 1, "notes": "Отжимания, приседания, планка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 17,
+    "fields": {"program": 6, "name": "Поддержание формы: День 2 (Кардио)", "day_number": 2, "notes": "Ходьба, прыжки, скакалка"}
+  },
+  {
+    "model": "programs.programworkout",
+    "pk": 18,
+    "fields": {"program": 6, "name": "Поддержание формы: День 3 (Растяжка)", "day_number": 3, "notes": "Планка, растяжка"}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 1,
+    "fields": {"workout": 1, "exercise": 5, "sets": 3, "reps": 10, "rest_time": 60, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 2,
+    "fields": {"workout": 1, "exercise": 7, "sets": 3, "reps": 10, "rest_time": 60, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 3,
+    "fields": {"workout": 1, "exercise": 11, "sets": 3, "reps": 12, "rest_time": 45, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 4,
+    "fields": {"workout": 2, "exercise": 2, "sets": 3, "reps": 12, "rest_time": 60, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 5,
+    "fields": {"workout": 2, "exercise": 8, "sets": 3, "reps": 10, "rest_time": 60, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 6,
+    "fields": {"workout": 2, "exercise": 13, "sets": 3, "reps": 15, "rest_time": 45, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 7,
+    "fields": {"workout": 3, "exercise": 16, "sets": 5, "reps": 1, "rest_time": 30, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 8,
+    "fields": {"workout": 3, "exercise": 14, "sets": 3, "reps": 45, "rest_time": 30, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 9,
+    "fields": {"workout": 4, "exercise": 2, "sets": 5, "reps": 5, "rest_time": 120, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 10,
+    "fields": {"workout": 4, "exercise": 2, "sets": 3, "reps": 8, "rest_time": 90, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 11,
+    "fields": {"workout": 4, "exercise": 15, "sets": 3, "reps": 10, "rest_time": 60, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 12,
+    "fields": {"workout": 5, "exercise": 1, "sets": 5, "reps": 5, "rest_time": 120, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 13,
+    "fields": {"workout": 5, "exercise": 7, "sets": 3, "reps": 8, "rest_time": 90, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 14,
+    "fields": {"workout": 5, "exercise": 12, "sets": 3, "reps": 8, "rest_time": 60, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 15,
+    "fields": {"workout": 6, "exercise": 3, "sets": 5, "reps": 5, "rest_time": 120, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 16,
+    "fields": {"workout": 6, "exercise": 6, "sets": 3, "reps": 8, "rest_time": 90, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 17,
+    "fields": {"workout": 6, "exercise": 4, "sets": 3, "reps": 6, "rest_time": 90, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 18,
+    "fields": {"workout": 7, "exercise": 5, "sets": 4, "reps": 8, "rest_time": 60, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 19,
+    "fields": {"workout": 7, "exercise": 16, "sets": 3, "reps": 50, "rest_time": 30, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 20,
+    "fields": {"workout": 7, "exercise": 13, "sets": 3, "reps": 20, "rest_time": 30, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 21,
+    "fields": {"workout": 8, "exercise": 4, "sets": 4, "reps": 8, "rest_time": 90, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 22,
+    "fields": {"workout": 8, "exercise": 6, "sets": 4, "reps": 10, "rest_time": 60, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 23,
+    "fields": {"workout": 8, "exercise": 11, "sets": 4, "reps": 10, "rest_time": 60, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 24,
+    "fields": {"workout": 9, "exercise": 2, "sets": 4, "reps": 8, "rest_time": 90, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 25,
+    "fields": {"workout": 9, "exercise": 18, "sets": 4, "reps": 10, "rest_time": 60, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 26,
+    "fields": {"workout": 9, "exercise": 9, "sets": 4, "reps": 8, "rest_time": 90, "order": 3}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 27,
+    "fields": {"workout": 10, "exercise": 2, "sets": 5, "reps": 5, "rest_time": 90, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 28,
+    "fields": {"workout": 10, "exercise": 9, "sets": 3, "reps": 8, "rest_time": 60, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 29,
+    "fields": {"workout": 11, "exercise": 2, "sets": 5, "reps": 5, "rest_time": 90, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 30,
+    "fields": {"workout": 11, "exercise": 1, "sets": 5, "reps": 5, "rest_time": 90, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 31,
+    "fields": {"workout": 12, "exercise": 6, "sets": 3, "reps": 8, "rest_time": 60, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 32,
+    "fields": {"workout": 12, "exercise": 11, "sets": 3, "reps": 10, "rest_time": 45, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 33,
+    "fields": {"workout": 13, "exercise": 16, "sets": 3, "reps": 30, "rest_time": 45, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 34,
+    "fields": {"workout": 13, "exercise": 5, "sets": 3, "reps": 10, "rest_time": 45, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 35,
+    "fields": {"workout": 14, "exercise": 2, "sets": 3, "reps": 8, "rest_time": 60, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 36,
+    "fields": {"workout": 14, "exercise": 8, "sets": 3, "reps": 8, "rest_time": 60, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 37,
+    "fields": {"workout": 15, "exercise": 1, "sets": 3, "reps": 8, "rest_time": 60, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 38,
+    "fields": {"workout": 15, "exercise": 10, "sets": 3, "reps": 10, "rest_time": 45, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 39,
+    "fields": {"workout": 16, "exercise": 5, "sets": 3, "reps": 10, "rest_time": 45, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 40,
+    "fields": {"workout": 16, "exercise": 13, "sets": 3, "reps": 15, "rest_time": 30, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 41,
+    "fields": {"workout": 17, "exercise": 16, "sets": 5, "reps": 30, "rest_time": 30, "order": 1}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 42,
+    "fields": {"workout": 17, "exercise": 5, "sets": 3, "reps": 10, "rest_time": 45, "order": 2}
+  },
+  {
+    "model": "programs.programexercise",
+    "pk": 43,
+    "fields": {"workout": 18, "exercise": 14, "sets": 3, "reps": 45, "rest_time": 30, "order": 1}
+  }
+]

@@ -13,7 +13,8 @@
     <li>
         <strong>{{ ex.exercise.name }}</strong><br>
         {{ ex.sets }} подходов × {{ ex.reps }} повторений<br>
-        Вес: {{ ex.weight }} кг
+        Вес: {{ ex.weight }} кг<br>
+        <a href="{% url 'generators:exercise_progress' ex.exercise.id %}">📈 Посмотреть прогресс</a>
     </li>
     {% endfor %}
 </ul>

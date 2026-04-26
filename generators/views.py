@@ -226,6 +226,30 @@ def workout_history(request):
     return render(request,'generators/workout_history.html',{'workouts':workouts})
 
 
+def exercise_progress(request, exercise_id):
+    exercise = get_object_or_404(Exercise, id=exercise_id)
+    logs = ExerciseLog.objects.filter(
+        exercise=exercise,
+        workout_log__user=request.user
+    ).select_related('workout_log').order_by('workout_log__date')
+
+    dates = []
+    weights = []
+    volumes = []
+    for log in logs:
+        dates.append(log.workout_log.date.strftime('%Y-%m-%d'))
+        weights.append(log.weight)
+        volumes.append(log.weight * log.reps * log.sets)
+        log.volume = log.weight * log.reps * log.sets  # для таблицы
+
+    context = {
+        'exercise': exercise,
+        'logs': logs,
+        'dates': dates,
+        'weights': weights,
+        'volumes': volumes,
+    }
+    return render(request, 'generators/exercise_progress.html', context)
 
 
 

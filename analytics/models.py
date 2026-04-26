@@ -63,6 +63,9 @@ class ExerciseLog(models.Model):
     notes = models.TextField(blank=True, null=True)
     performed_at = models.DateTimeField(auto_now_add=True)
 
+
+
+
     def __str__(self):
         return f"{self.exercise.name}-{self.workout_log.date}"
 
@@ -112,3 +115,4 @@ class ExerciseProgress(models.Model):
 
         def __str__(self):
             return f"{self.user.email} - День {self.current_day}"
+
