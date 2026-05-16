@@ -1,100 +1,110 @@
 {% extends 'main/base.html' %}
-{% load static %}
 
-{% block title %}Прогресс: {{ exercise.name }}{% endblock %}
+{% block title %}Прогресс: {{ exercise.name }} — FitTrack{% endblock %}
 
 {% block content %}
-<div class="progress-container">
-    <h1>Прогресс в упражнении: {{ exercise.name }}</h1>
-
-    <div class="chart-card">
-        <canvas id="weightChart" width="400" height="200"></canvas>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>{{ exercise.name }}</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Динамика веса и объёма нагрузки</p>
     </div>
 
+    {% if logs %}
     <div class="chart-card">
-        <canvas id="volumeChart" width="400" height="200"></canvas>
+        <canvas id="weightChart" height="120"></canvas>
+    </div>
+    <div class="chart-card">
+        <canvas id="volumeChart" height="120"></canvas>
     </div>
 
-    <table class="progress-table">
-        <thead>
-            <tr>
-                <th>Дата</th>
-                <th>Вес (кг)</th>
-                <th>Повторения</th>
-                <th>Подходы</th>
-                <th>Объём (кг × повт × подход)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for log in logs %}
-            <tr>
-                <td>{{ log.workout_log.date|date:"d.m.Y" }}</td>
-                <td>{{ log.weight|floatformat:0 }}</td>
-                <td>{{ log.reps }}</td>
-                <td>{{ log.sets }}</td>
-                <td>{{ log.volume|floatformat:0 }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="content-card">
+        <table class="progress-table">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Вес (кг)</th>
+                    <th>Повторения</th>
+                    <th>Подходы</th>
+                    <th>Объём</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.workout_log.date|date:"d.m.Y" }}</td>
+                    <td>{{ log.weight|floatformat:1 }}</td>
+                    <td>{{ log.reps }}</td>
+                    <td>{{ log.sets }}</td>
+                    <td>{{ log.volume|floatformat:0 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="content-card" style="text-align: center;">
+        <p>Пока нет записей по этому упражнению.</p>
+    </div>
+    {% endif %}
 
-    <a href="{% url 'generators:workout_history' %}" class="btn-back">← Назад к тренировкам</a>
+    <a href="{% url 'generators:workout_history' %}" class="btn-back">← К истории тренировок</a>
 </div>
+{% endblock %}
 
+{% block extra_js %}
+{% if logs %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{ dates|json_script:"chart-dates" }}
+{{ weights|json_script:"chart-weights" }}
+{{ volumes|json_script:"chart-volumes" }}
 <script>
-    const dates = {{ dates|safe }};
-    const weights = {{ weights|safe }};
-    const volumes = {{ volumes|safe }};
+    const dates = JSON.parse(document.getElementById('chart-dates').textContent);
+    const weights = JSON.parse(document.getElementById('chart-weights').textContent);
+    const volumes = JSON.parse(document.getElementById('chart-volumes').textContent);
 
-    const ctxWeight = document.getElementById('weightChart').getContext('2d');
-    new Chart(ctxWeight, {
-        type: 'line',
-        data: {
-            labels: dates,
-            datasets: [{
-                label: 'Вес (кг)',
-                data: weights,
-                borderColor: '#2d6a4f',
-                backgroundColor: 'rgba(45, 106, 79, 0.1)',
-                tension: 0.1,
-                fill: true
-            }]
-        },
-        options: {
+    if (dates.length) {
+        const chartOpts = {
             responsive: true,
-            plugins: { legend: { labels: { color: '#fff' } } },
-            scales: { y: { title: { display: true, text: 'кг', color: '#fff' } } }
-        }
-    });
+            plugins: { legend: { labels: { color: '#ccc' } } },
+            scales: {
+                x: { ticks: { color: '#888' }, grid: { color: '#333' } },
+                y: { ticks: { color: '#888' }, grid: { color: '#333' } },
+            },
+        };
 
-    const ctxVolume = document.getElementById('volumeChart').getContext('2d');
-    new Chart(ctxVolume, {
-        type: 'line',
-        data: {
-            labels: dates,
-            datasets: [{
-                label: 'Объём (кг × повт × подход)',
-                data: volumes,
-                borderColor: '#ffa94d',
-                backgroundColor: 'rgba(255, 169, 77, 0.1)',
-                tension: 0.1,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: { y: { title: { display: true, text: 'объём' } } }
-        }
-    });
+        new Chart(document.getElementById('weightChart'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Вес (кг)',
+                    data: weights,
+                    borderColor: '#2d6a4f',
+                    backgroundColor: 'rgba(45, 106, 79, 0.15)',
+                    tension: 0.2,
+                    fill: true,
+                }],
+            },
+            options: chartOpts,
+        });
+
+        new Chart(document.getElementById('volumeChart'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Объём',
+                    data: volumes,
+                    borderColor: '#ffa94d',
+                    backgroundColor: 'rgba(255, 169, 77, 0.15)',
+                    tension: 0.2,
+                    fill: true,
+                }],
+            },
+            options: chartOpts,
+        });
+    }
 </script>
-
-<style>
-    .progress-container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-    .chart-card { background: #1e1e1e; border-radius: 12px; padding: 20px; margin-bottom: 30px; }
-    .progress-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
-    .progress-table th, .progress-table td { padding: 10px; text-align: center; border-bottom: 1px solid #333; }
-    .progress-table th { background: #2d6a4f; }
-    .btn-back { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #555; color: white; text-decoration: none; border-radius: 5px; }
-</style>
+{% endif %}
 {% endblock %}

@@ -1,11 +1,34 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Тренировки — FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Тренировки</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Выберите направление и создайте персональную программу</p>
+    </div>
 
+    <div class="cards-grid cards-grid-2" style="margin-bottom: 32px;">
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
+            <h3>Новая тренировка</h3>
+            <p>Сгенерируйте план на сегодня с учётом ваших максимумов и целей.</p>
+            <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary" style="margin-top: 16px; display: inline-block;">Создать</a>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-history"></i></div>
+            <h3>История</h3>
+            <p>Просмотрите прошлые тренировки и отслеживайте прогресс по упражнениям.</p>
+            <a href="{% url 'generators:workout_history' %}" class="btn-ft-secondary" style="margin-top: 16px; display: inline-block;">Открыть</a>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <h2>Спортивные направления</h2>
+        <p style="margin-bottom: 20px;">FitTrack поддерживает фитнес, пауэрлифтинг, кроссфит, тяжёлую и лёгкую атлетику.</p>
+        <a href="{% url 'type' %}" class="btn-ft-primary">Все направления</a>
+    </div>
+</div>
 {% endblock %}

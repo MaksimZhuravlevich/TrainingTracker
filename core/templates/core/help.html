@@ -1,11 +1,50 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Помощь — FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Помощь</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Как пользоваться FitTrack</p>
+    </div>
 
+    <div class="cards-grid cards-grid-2">
+        <div class="content-card">
+            <h2><i class="fas fa-user-plus"></i> Регистрация</h2>
+            <ul>
+                <li>Создайте аккаунт через «Регистрация» в шапке сайта</li>
+                <li>Укажите email, имя и пароль (минимум 8 символов)</li>
+                <li>После входа заполните физические данные при создании тренировки</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h2><i class="fas fa-dumbbell"></i> Тренировки</h2>
+            <ul>
+                <li>Выберите спортивное направление</li>
+                <li>Укажите максимальные веса в упражнениях</li>
+                <li>Нажмите «Сгенерировать тренировку» — система подберёт нагрузку</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h2><i class="fas fa-apple-alt"></i> Питание</h2>
+            <ul>
+                <li>Раздел «Питание» рассчитает калории и БЖУ</li>
+                <li>Данные подставляются из профиля автоматически</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h2><i class="fas fa-chart-line"></i> Прогресс</h2>
+            <ul>
+                <li>Смотрите историю тренировок в «Мои тренировки»</li>
+                <li>График прогресса доступен для каждого упражнения</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-card" style="text-align: center; margin-top: 24px;">
+        <p>Остались вопросы? Напишите на <strong>support@fittrack.ru</strong></p>
+    </div>
+</div>
 {% endblock %}

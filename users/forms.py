@@ -11,26 +11,26 @@ class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(
         required=True,
         max_length=66,
-        widget=forms.EmailInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your email'})
+        widget=forms.EmailInput(attrs={'class': 'input-register form-control', 'placeholder': 'Email'})
     )
     first_name = forms.CharField(
         required=True,
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your first name'})
+        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Имя'})
     )
     last_name = forms.CharField(
         required=True,
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your last name'})
+        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Фамилия'})
     )
     password1 = forms.CharField(
         required=True,
-        widget=forms.PasswordInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your password'})
+        widget=forms.PasswordInput(attrs={'class': 'input-register form-control', 'placeholder': 'Пароль'})
     )
     password2 = forms.CharField(
         required=True,
         widget=forms.PasswordInput(
-            attrs={'class': 'input-register form-control', 'placeholder': 'Confirm your password'})
+            attrs={'class': 'input-register form-control', 'placeholder': 'Повторите пароль'})
     )
     marketing_consent1 = forms.BooleanField(
         required=False,
@@ -68,11 +68,11 @@ class CustomUserLoginForm(AuthenticationForm):
     username = forms.CharField(
         label='Email',
         widget=forms.TextInput(
-            attrs={'autofocus': True, 'class': 'input-register form-control', 'placeholder': 'Your email'})
+            attrs={'autofocus': True, 'class': 'input-register form-control', 'placeholder': 'Email'})
     )
     password = forms.CharField(
         label='Password',
-        widget=forms.PasswordInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your Password'})
+        widget=forms.PasswordInput(attrs={'class': 'input-register form-control', 'placeholder': 'Пароль'})
     )
 
     def clean(self):
@@ -98,16 +98,16 @@ class CustomUserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(
         required=True,
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your first name'})
+        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Имя'})
     )
     last_name = forms.CharField(
         required=True,
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your last name'})
+        widget=forms.TextInput(attrs={'class': 'input-register form-control', 'placeholder': 'Фамилия'})
     )
     email = forms.EmailField(
         required=False,
-        widget=forms.EmailInput(attrs={'class': 'input-register form-control', 'placeholder': 'Your email'})
+        widget=forms.EmailInput(attrs={'class': 'input-register form-control', 'placeholder': 'Email'})
     )
 
     class Meta:

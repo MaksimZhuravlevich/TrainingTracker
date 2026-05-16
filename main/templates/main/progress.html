@@ -1,11 +1,57 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Прогресс — FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Ваш прогресс</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Статистика тренировок и достижения</p>
+    </div>
 
+    {% if user.is_authenticated %}
+        <div class="stat-cards">
+            <div class="stat-card">
+                <div class="value">{{ workout_count }}</div>
+                <div class="label">Тренировок всего</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">{{ recent_workouts|length }}</div>
+                <div class="label">В последнем списке</div>
+            </div>
+        </div>
+
+        {% if recent_workouts %}
+        <div class="content-card">
+            <h2><i class="fas fa-history"></i> Последние тренировки</h2>
+            <div class="workout-list">
+                {% for w in recent_workouts %}
+                <a href="{% url 'generators:workout_detail' w.id %}" class="workout-list-item">
+                    <strong>{{ w.workout.name }}</strong>
+                    <span class="meta"> — {{ w.date|date:"d.m.Y" }} · {{ w.program.name }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="action-bar">
+                <a href="{% url 'generators:workout_history' %}" class="btn-ft-primary">Вся история</a>
+                <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary">Новая тренировка</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="content-card" style="text-align: center;">
+            <p>Вы ещё не завершили ни одной тренировки. Создайте первую!</p>
+            <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary">Создать тренировку</a>
+        </div>
+        {% endif %}
+    {% else %}
+        <div class="content-card" style="text-align: center;">
+            <p>Войдите в аккаунт, чтобы видеть статистику тренировок.</p>
+            <div class="cta-buttons">
+                <a href="{% url 'users:login' %}" class="btn-ft-primary">Войти</a>
+                <a href="{% url 'users:register' %}" class="btn-ft-secondary">Регистрация</a>
+            </div>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

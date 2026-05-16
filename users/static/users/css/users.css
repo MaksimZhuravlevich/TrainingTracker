@@ -250,6 +250,12 @@ button[type="submit"]:hover {
 .auth-logo img {
     width: 40px !important;
     height: 40px !important;
+}
+
+.auth-logo .logo-icon {
+    font-size: 32px;
+    color: #2d6a4f;
+}
 
 /* Кнопка "На главную" */
 .back-to-home {

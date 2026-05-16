@@ -1,11 +1,45 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Настройки — FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Настройки</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Управление аккаунтом</p>
+    </div>
 
+    {% if user.is_authenticated %}
+    <div class="cards-grid cards-grid-2">
+        <div class="content-card">
+            <h2><i class="fas fa-user"></i> Профиль</h2>
+            <p><strong>Имя:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            {% if user.user_age %}<p><strong>Возраст:</strong> {{ user.user_age }} лет</p>{% endif %}
+            {% if user.user_weight %}<p><strong>Вес:</strong> {{ user.user_weight }} кг</p>{% endif %}
+            {% if user.user_height %}<p><strong>Рост:</strong> {{ user.user_height }} см</p>{% endif %}
+            <a href="{% url 'users:profile' %}" class="btn-ft-primary" style="margin-top: 16px; display: inline-block;">Редактировать профиль</a>
+        </div>
+        <div class="content-card">
+            <h2><i class="fas fa-sliders-h"></i> Данные для тренировок</h2>
+            <p>Обновите физические параметры и рабочие максимумы для точного расчёта нагрузки.</p>
+            <a href="{% url 'generators:fill_data' %}" class="btn-ft-primary" style="margin-top: 16px; display: inline-block;">Обновить данные</a>
+        </div>
+    </div>
+    <div class="content-card" style="margin-top: 20px;">
+        <h2><i class="fas fa-sign-out-alt"></i> Выход</h2>
+        <p>Завершить сеанс на этом устройстве.</p>
+        <a href="{% url 'users:logout' %}" class="btn-ft-secondary" style="margin-top: 12px; display: inline-block;">Выйти</a>
+    </div>
+    {% else %}
+    <div class="content-card" style="text-align: center;">
+        <p>Войдите, чтобы управлять настройками аккаунта.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'users:login' %}" class="btn-ft-primary">Войти</a>
+            <a href="{% url 'users:register' %}" class="btn-ft-secondary">Регистрация</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}

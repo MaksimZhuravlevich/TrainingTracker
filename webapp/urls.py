@@ -5,9 +5,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls')),  # без namespace
-    path('core/', include('core.urls')),  # без namespace
-    path('nutrition/', include('nutrition.urls')),  # без namespace
-    path('users/', include(('users.urls', 'users'), namespace='users')),  # ТОЛЬКО users с namespace!
+    path('', include('main.urls')),
+    path('core/', include('core.urls')),
+    path('nutrition/', include('nutrition.urls')),
+    path('users/', include(('users.urls', 'users'), namespace='users')),
     path('generators/', include(('generators.urls', 'generators'), namespace='generators')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

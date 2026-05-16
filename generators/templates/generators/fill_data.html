@@ -1,56 +1,58 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Ваши данные{% endblock %}
+{% block title %}Ваши данные — FitTrack{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Ваши данные для направления "{{ sport }}"</h1>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Данные для «{{ sport }}»</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Параметры нужны для расчёта рабочих весов</p>
+    </div>
 
-    <form method="post" id="mainForm">
-        {% csrf_token %}
+    <div class="form-card">
+        <form method="post" id="mainForm">
+            {% csrf_token %}
 
-        <h2>Физические параметры</h2>
-        {{ phys_form.as_p }}
+            <h2>Физические параметры</h2>
+            {{ phys_form.as_p }}
 
-        <h2>Максимальные веса</h2>
+            <h2>Максимальные веса</h2>
 
-        {% if has_maxes %}
-            <div class="alert alert-info" id="savedMaxesBlock">
-                <p>У вас уже есть сохранённые максимальные веса:</p>
-                <ul>
+            {% if has_maxes %}
+            <div class="ft-alert" id="savedMaxesBlock">
+                <p>У вас уже есть сохранённые максимумы:</p>
+                <ul style="margin: 12px 0; padding-left: 20px; color: #ccc;">
                 {% for exercise in exercises_with_maxes %}
-                    <li><strong>{{ exercise.exercise.name }}</strong> — {{ exercise.max_weight }} кг × {{ exercise.reps }} повтор.</li>
+                    <li><strong>{{ exercise.exercise.name }}</strong> — {{ exercise.max_weight }} кг × {{ exercise.reps }} повт.</li>
                 {% endfor %}
                 </ul>
-                <div class="buttons">
-                    <button type="button" id="keepMaxesBtn" class="btn btn-primary">Оставить как есть</button>
-                    <button type="button" id="editMaxesBtn" class="btn btn-warning">Изменить веса</button>
+                <div class="action-bar">
+                    <button type="button" id="keepMaxesBtn" class="btn-ft-primary">Оставить как есть</button>
+                    <button type="button" id="editMaxesBtn" class="btn-ft-secondary">Изменить веса</button>
                 </div>
             </div>
-        {% endif %}
+            {% endif %}
 
-        <div id="maxesFormBlock" style="display: {% if show_maxes_form %}block{% else %}none{% endif %};">
-            <p>Введите ваш максимальный вес для каждого упражнения (на 1-2 повторения).</p>
-            {{ max_form.as_p }}
-        </div>
+            <div id="maxesFormBlock" style="display: {% if show_maxes_form %}block{% else %}none{% endif %};">
+                <p style="color: #aaa; margin-bottom: 12px;">Введите максимальный вес на 1–2 повторения.</p>
+                {{ max_form.as_p }}
+            </div>
 
-        <button type="submit" name="generate" value="yes" class="btn btn-success" id="generateBtn">Сгенерировать тренировку</button>
-    </form>
+            <button type="submit" class="btn-ft-primary" id="generateBtn" style="margin-top: 20px; width: 100%;">Сгенерировать тренировку</button>
+        </form>
+    </div>
 </div>
 
 <script>
-    // Получаем элементы
     const keepMaxesBtn = document.getElementById('keepMaxesBtn');
     const editMaxesBtn = document.getElementById('editMaxesBtn');
     const maxesFormBlock = document.getElementById('maxesFormBlock');
     const savedMaxesBlock = document.getElementById('savedMaxesBlock');
-    const generateBtn = document.getElementById('generateBtn');
     const mainForm = document.getElementById('mainForm');
 
-    // Кнопка "Оставить как есть" — отправляем форму с параметром keep_maxes
     if (keepMaxesBtn) {
         keepMaxesBtn.addEventListener('click', function() {
-            // Добавляем скрытое поле
             const input = document.createElement('input');
             input.type = 'hidden';
             input.name = 'keep_maxes';
@@ -59,24 +61,11 @@
             mainForm.submit();
         });
     }
-
-    // Кнопка "Изменить веса" — просто показываем форму, не отправляем
     if (editMaxesBtn) {
         editMaxesBtn.addEventListener('click', function() {
             maxesFormBlock.style.display = 'block';
-            savedMaxesBlock.style.display = 'none';
+            if (savedMaxesBlock) savedMaxesBlock.style.display = 'none';
         });
     }
 </script>
-
-<style>
-    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-    .alert { background: #f0f8ff; border: 1px solid #007bff; border-radius: 10px; padding: 20px; margin: 20px 0; }
-    .buttons { display: flex; gap: 15px; margin-top: 15px; }
-    .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-    .btn-primary { background: #007bff; color: white; }
-    .btn-warning { background: #ffc107; color: black; }
-    .btn-success { background: #28a745; color: white; }
-    h2 { margin-top: 25px; margin-bottom: 15px; }
-</style>
 {% endblock %}

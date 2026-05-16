@@ -1,22 +1,32 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Тренировка{% endblock %}
+{% block title %}{{ workout_log.workout.name }} — FitTrack{% endblock %}
 
 {% block content %}
-<h1>{{ workout_log.workout.name }}</h1>
-<p>Программа: {{ workout_log.program.name }}</p>
-<p>Дата: {{ workout_log.date }}</p>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>{{ workout_log.workout.name }}</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">{{ workout_log.program.name }} · {{ workout_log.date|date:"d.m.Y" }}</p>
+    </div>
 
-<h2>Упражнения</h2>
-<ul>
-    {% for ex in exercises %}
-    <li>
-        <strong>{{ ex.exercise.name }}</strong><br>
-        {{ ex.sets }} подходов × {{ ex.reps }} повторений<br>
-        Вес: {{ ex.weight }} кг<br>
-        <a href="{% url 'generators:exercise_progress' ex.exercise.id %}">📈 Посмотреть прогресс</a>
-    </li>
-    {% endfor %}
-</ul>
-<a href="{% url 'generators:choose_sport' %}">Новая тренировка</a>
+    <ul class="exercise-list">
+        {% for ex in exercises %}
+        <li>
+            <strong>{{ ex.exercise.name }}</strong><br>
+            {{ ex.sets }} × {{ ex.reps }} повторений · <strong>{{ ex.weight }} кг</strong><br>
+            <a href="{% url 'generators:exercise_progress' ex.exercise.id %}">График прогресса</a>
+        </li>
+        {% empty %}
+        <li>Упражнения не найдены.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="action-bar">
+        <a href="{% url 'generators:regenerate_workout' workout_log.id %}" class="btn-ft-secondary">Пересчитать</a>
+        <a href="{% url 'generators:delete_workout' workout_log.id %}" class="btn-ft-secondary">Удалить</a>
+        <a href="{% url 'generators:workout_history' %}" class="btn-ft-outline">История</a>
+        <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary">Новая тренировка</a>
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Удалить тренировку{% endblock %}
+
+{% block content %}
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Удалить тренировку?</h1>
+        <div class="header-line"></div>
+    </div>
+
+    <div class="content-card" style="text-align: center; max-width: 480px; margin: 0 auto;">
+        <p><strong>{{ workout_log.workout.name }}</strong></p>
+        <p style="color: #888;">{{ workout_log.date|date:"d.m.Y" }}</p>
+        <form method="post" class="action-bar" style="justify-content: center; margin-top: 24px;">
+            {% csrf_token %}
+            <button type="submit" class="btn-ft-secondary" style="border: none;">Удалить</button>
+            <a href="{% url 'generators:workout_detail' workout_log.id %}" class="btn-ft-primary">Отмена</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

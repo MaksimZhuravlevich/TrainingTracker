@@ -1,11 +1,80 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Питание — FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="ft-page nutrition-page">
+    <div class="page-header">
+        <h1>Питание и калории</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Суточная норма калорий и БЖУ (Mifflin–St Jeor)</p>
+    </div>
 
+    {% if profile_incomplete %}
+    <div class="ft-alert ft-alert-warning">
+        Заполните возраст, вес и рост в
+        <a href="{% url 'generators:fill_data' %}">данных для тренировок</a>
+        или укажите ниже.
+    </div>
+    {% endif %}
+
+    <div class="nutrition-grid">
+        <section class="nutrition-form-card">
+            <h2>Ваши параметры</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-3">
+                    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}<div class="text-danger small">{{ field.errors.0 }}</div>{% endif %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn-ft-primary w-100">Рассчитать</button>
+            </form>
+        </section>
+
+        {% if result %}
+        <section class="nutrition-result-card">
+            <h2>План на день</h2>
+            <p class="goal-note">{{ result.goal_label }}</p>
+            <p class="activity-note">{{ result.activity_label }}</p>
+            <div class="calorie-main">
+                <span class="calorie-value">{{ result.calories }}</span>
+                <span class="calorie-unit">ккал / день</span>
+            </div>
+            <div class="macro-row">
+                <div class="macro-item protein">
+                    <span class="macro-value">{{ result.protein_g }} г</span>
+                    <span class="macro-label">Белки</span>
+                </div>
+                <div class="macro-item fat">
+                    <span class="macro-value">{{ result.fat_g }} г</span>
+                    <span class="macro-label">Жиры</span>
+                </div>
+                <div class="macro-item carbs">
+                    <span class="macro-value">{{ result.carbs_g }} г</span>
+                    <span class="macro-label">Углеводы</span>
+                </div>
+            </div>
+            <div class="bmr-details">
+                <p>BMR: <strong>{{ result.bmr }}</strong> ккал · TDEE: <strong>{{ result.tdee }}</strong> ккал</p>
+            </div>
+            <div class="tips">
+                <h3>Советы</h3>
+                <ul>
+                    <li>Белок ~1.8 г/кг для восстановления</li>
+                    <li>30–35 мл воды на кг веса</li>
+                    <li>3–5 приёмов пищи в день</li>
+                </ul>
+            </div>
+        </section>
+        {% else %}
+        <section class="nutrition-result-card nutrition-placeholder">
+            <h2>Результат</h2>
+            <p>Заполните форму и нажмите «Рассчитать».</p>
+        </section>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

@@ -1,29 +1,54 @@
-{% extends 'users/base.html' %}
+{% extends 'main/base.html' %}
 
-{% block title %}Your Profile{% endblock %}
+{% block title %}Профиль — FitTrack{% endblock %}
+
+{% block extra_head %}
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{% endblock %}
 
 {% block content %}
-    <h1>Hi, {{ request.user.first_name|upper }} {{ request.user.last_name|upper }}</h1>
-    <div class="profile-section">
-        <h2>Account Details</h2>
-        <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
-        <p>{{ request.user.email }}</p>
-        <p>{{ request.user.country|default:"Not specified" }}</p>
-        <button hx-get="{% url 'users:edit_account_details' %}" 
-                hx-target="#account-details-content" 
-                hx-swap="innerHTML">
-            Edit
-        </button>
-        <div id="account-details-content"></div>
+<div class="ft-page profile-page">
+    <div class="page-header">
+        <div class="profile-avatar-large">
+            {{ user.first_name|first|upper }}{{ user.last_name|first|upper }}
+        </div>
+        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">{{ user.email }}</p>
     </div>
-    <a href="{% url 'users:logout' %}" class="link">Log Out</a>
-    <div class="auth-container">
-            <!-- Кнопка "На главную" вверху -->
-            <div class="back-to-home">
-                <a href="{% url 'home' %}" class="back-button">
-                    <i class="fas fa-arrow-left"></i> На главную
-                </a>
+
+    <div class="profile-grid">
+        <div class="content-card">
+            <h2><i class="fas fa-id-card"></i> Аккаунт</h2>
+            <div id="account-details-content">
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                {% if user.phone %}<p><strong>Телефон:</strong> {{ user.phone }}</p>{% endif %}
+                {% if user.city %}<p><strong>Город:</strong> {{ user.city }}</p>{% endif %}
             </div>
+            <button type="button" class="btn-ft-primary" style="margin-top: 16px; border: none;"
+                    hx-get="{% url 'users:edit_account_details' %}"
+                    hx-target="#account-details-content"
+                    hx-swap="innerHTML">
+                Редактировать
+            </button>
+        </div>
+        <div class="content-card">
+            <h2><i class="fas fa-running"></i> Тренировки</h2>
+            {% if user.user_age %}
+            <p><strong>Возраст:</strong> {{ user.user_age }} · <strong>Вес:</strong> {{ user.user_weight }} кг · <strong>Рост:</strong> {{ user.user_height }} см</p>
+            {% else %}
+            <p>Заполните данные для персональных тренировок.</p>
+            {% endif %}
+            <div class="action-bar">
+                <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary">Тренировка</a>
+                <a href="{% url 'generators:workout_history' %}" class="btn-ft-secondary">История</a>
+            </div>
+        </div>
+    </div>
 
-
+    <div class="action-bar" style="justify-content: center; margin-top: 8px;">
+        <a href="{% url 'users:logout' %}" class="btn-ft-outline">Выйти</a>
+        <a href="{% url 'home' %}" class="btn-ft-outline">На главную</a>
+    </div>
+</div>
 {% endblock %}

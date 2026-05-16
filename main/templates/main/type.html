@@ -4,7 +4,7 @@
 {% block title %}Спортивные направления - FitTrack{% endblock %}
 
 {% block content %}
-<a class="sports-page">
+<div class="sports-page">
 
     <!-- Заголовок -->
     <div class="page-header">
@@ -60,87 +60,4 @@
 
     </div>
 </div>
-
-<style>
-    .sports-page {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
-
-    .page-header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .page-header h1 {
-        font-size: 32px;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: #fff;
-    }
-
-    .header-line {
-        width: 60px;
-        height: 3px;
-        background: #2d6a4f;
-        margin: 0 auto;
-    }
-
-    .create-workout-section {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .btn-create-workout {
-        display: inline-block;
-        padding: 14px 32px;
-        background: #2d6a4f;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 600;
-        border-radius: 8px;
-        transition: background 0.3s ease;
-    }
-
-    .btn-create-workout:hover {
-        background: #1e4f3a;
-    }
-
-    .sports-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 25px;
-    }
-
-    .sport-card {
-        background: #1e1e1e;
-        border: 1px solid #333;
-        border-radius: 12px;
-        padding: 25px;
-        transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .sport-card {
-    text-decoration: none;
-    }
-
-    .sport-card:hover {
-        transform: translateY(-3px);
-        border-color: #2d6a4f;
-    }
-
-    .sport-card h3 {
-        font-size: 22px;
-        font-weight: 600;
-        margin-bottom: 12px;
-        color: #fff;
-    }
-
-    .sport-card p {
-        font-size: 14px;
-        color: #aaa;
-        line-height: 1.5;
-    }
-</style>
 {% endblock %}

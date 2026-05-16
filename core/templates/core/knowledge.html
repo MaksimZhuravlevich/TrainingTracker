@@ -1,11 +1,56 @@
 {% extends 'main/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}База знаний — FitTrack{% endblock %}
 
 {% block content %}
-<div class = "main_class">
-    <h1>Проверка</h1>
-    <p>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</p>
-</div>
+<div class="ft-page">
+    <div class="page-header">
+        <h1>База знаний</h1>
+        <div class="header-line"></div>
+        <p class="subtitle">Полезные советы по тренировкам и питанию</p>
+    </div>
 
+    <div class="cards-grid cards-grid-3">
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-fire"></i></div>
+            <h3>Разминка</h3>
+            <p>5–10 минут кардио и суставная гимнастика снижают риск травм и улучшают результат.</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-tint"></i></div>
+            <h3>Вода</h3>
+            <p>Пейте воду до, во время и после тренировки. Обезвоживание снижает силу на 10–20%.</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-bed"></i></div>
+            <h3>Сон</h3>
+            <p>7–9 часов сна — основа восстановления мышц и гормонального баланса.</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-utensils"></i></div>
+            <h3>Питание</h3>
+            <p>Белок после тренировки в течение 2 часов ускоряет восстановление.</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-redo"></i></div>
+            <h3>Прогрессия</h3>
+            <p>Увеличивайте нагрузку постепенно: +2.5 кг или +1 повторение в неделю.</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+            <h3>Отдых</h3>
+            <p>Мышцам нужно 48–72 часа на восстановление между тяжёлыми силовыми сессиями.</p>
+        </div>
+    </div>
+
+    <div class="content-card" style="margin-top: 24px;">
+        <h2>Техника выполнения</h2>
+        <ul>
+            <li>Контролируйте движение на всех фазах — не бросайте вес</li>
+            <li>Дышите: выдох на усилии, вдох на возврате</li>
+            <li>Начинайте с лёгкого веса, отрабатывайте технику</li>
+            <li>При боли в суставах — остановитесь и обратитесь к специалисту</li>
+        </ul>
+    </div>
+</div>
 {% endblock %}

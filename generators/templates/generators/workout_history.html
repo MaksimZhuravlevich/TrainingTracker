@@ -1,24 +1,31 @@
 {% extends 'main/base.html' %}
 
-{% block title %}История тренировок{% endblock %}
+{% block title %}История тренировок — FitTrack{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Мои тренировки</h1>
-    
+<div class="ft-page">
+    <div class="page-header">
+        <h1>Мои тренировки</h1>
+        <div class="header-line"></div>
+    </div>
+
     {% if workouts %}
-        <ul>
+    <div class="workout-list">
         {% for workout in workouts %}
-            <li>
-                <a href="{% url 'generators:workout_detail' workout.id %}">
-                    {{ workout.workout.name }} - {{ workout.date }}
-                </a>
-            </li>
+        <a href="{% url 'generators:workout_detail' workout.id %}" class="workout-list-item">
+            <strong>{{ workout.workout.name }}</strong>
+            <span class="meta"> — {{ workout.date|date:"d.m.Y" }} · {{ workout.program.name }}</span>
+        </a>
         {% endfor %}
-        </ul>
+    </div>
+    <div class="action-bar" style="margin-top: 24px;">
+        <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary">Новая тренировка</a>
+    </div>
     {% else %}
+    <div class="content-card" style="text-align: center;">
         <p>У вас пока нет тренировок.</p>
-        <a href="{% url 'generators:choose_sport' %}">Создать первую тренировку</a>
+        <a href="{% url 'generators:choose_sport' %}" class="btn-ft-primary">Создать первую</a>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

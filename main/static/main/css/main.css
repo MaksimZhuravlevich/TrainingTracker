@@ -48,9 +48,16 @@ body {
 
 /* Логотип в верхней панели */
 .logo {
-    font-size: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-left: 10px;
-    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 28px;
+    color: #2d6a4f;
 }
 
 .logo-img {
@@ -194,8 +201,826 @@ main {
 main .main_class {
     float: left;
     color: #fff;
-    text-align: center;
+    text-align: left;
     width: 100%;
+}
+
+/* Кнопки входа / регистрации */
+.btn-register,
+.btn-login {
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-register {
+    background: #2d6a4f;
+    color: #fff !important;
+}
+
+.btn-register:hover {
+    background: #1e4f3a;
+}
+
+.btn-login {
+    border: 1px solid #4d4d4d;
+    color: #fff !important;
+}
+
+.btn-login:hover {
+    border-color: #2d6a4f;
+    color: #2d6a4f !important;
+}
+
+.profile-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2d6a4f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid #4d4d4d;
+}
+
+aside h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin: 0 0 10px 0;
+    padding: 0 15px;
+}
+
+aside h3 i {
+    margin-right: 8px;
+    color: #2d6a4f;
+}
+
+.nav-menu-bottom {
+    margin-top: 30px !important;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+/* Сообщения Django */
+.django-messages {
+    margin-bottom: 20px;
+}
+
+.django-messages .alert {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+.django-messages .alert-success {
+    border-left: 4px solid #2d6a4f;
+}
+
+.django-messages .alert-error,
+.django-messages .alert-danger {
+    border-left: 4px solid #e63946;
+}
+
+.django-messages .alert-warning {
+    border-left: 4px solid #ffc107;
+}
+
+.django-messages .alert-info {
+    border-left: 4px solid #4dabf7;
+}
+
+/* ===== ОБЩАЯ СИСТЕМА СТРАНИЦ FITTRACK ===== */
+.ft-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 10px 40px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.page-header .subtitle {
+    color: #aaa;
+    font-size: 16px;
+}
+
+.header-line {
+    width: 60px;
+    height: 3px;
+    background: #2d6a4f;
+    margin: 0 auto;
+}
+
+.btn-ft-primary,
+.btn-create-program,
+.btn-create-workout {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #2d6a4f;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-ft-primary:hover,
+.btn-create-program:hover,
+.btn-create-workout:hover {
+    background: #1e4f3a;
+    color: #fff !important;
+}
+
+.btn-ft-secondary {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #4d4d4d;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-ft-secondary:hover {
+    background: #666;
+}
+
+.btn-ft-outline,
+.btn-back {
+    display: inline-block;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    transition: color 0.2s;
+}
+
+.btn-ft-outline:hover,
+.btn-back:hover {
+    color: #2d6a4f;
+}
+
+.content-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.content-card h2,
+.content-card h3 {
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.content-card p,
+.content-card li {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.content-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content-card li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+}
+
+.content-card li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #2d6a4f;
+}
+
+.cards-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.cards-grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.cards-grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.info-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 22px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.info-card:hover {
+    border-color: #2d6a4f;
+    transform: translateY(-2px);
+}
+
+.info-card h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #aaa;
+    font-size: 14px;
+    margin: 0;
+}
+
+.info-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.info-card .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #2d6a4f;
+}
+
+/* Формы в тёмной теме */
+main .form-control,
+main .form-select {
+    background: #2c2c2c;
+    border: 1px solid #4d4d4d;
+    color: #fff;
+}
+
+main .form-control:focus,
+main .form-select:focus {
+    background: #2c2c2c;
+    border-color: #2d6a4f;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(45, 106, 79, 0.25);
+}
+
+main label,
+main .form-label {
+    color: #ccc;
+}
+
+.form-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-card h1,
+.form-card h2 {
+    color: #fff;
+}
+
+.form-card h2 {
+    font-size: 1.1rem;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+
+.ft-alert {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-left: 4px solid #4dabf7;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.ft-alert-warning {
+    border-left-color: #ffc107;
+}
+
+.ft-alert a {
+    color: #2d6a4f;
+}
+
+/* Главная */
+.home-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.welcome-section h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.welcome-section .subtitle {
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+.why-exercise h2,
+.quotes-section h2,
+.facts-section h2,
+.tip-of-day h2,
+.cta-section h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 28px;
+    font-size: 1.5rem;
+}
+
+.benefits-grid,
+.quotes-grid,
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+.benefit-card,
+.quote-card,
+.fact-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.benefit-card h3,
+.fact-card .fact-number {
+    color: #2d6a4f;
+    margin-bottom: 10px;
+}
+
+.benefit-card p,
+.quote-card p,
+.fact-card p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.quote-card i {
+    color: #2d6a4f;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.fact-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tip-card {
+    background: #1e1e1e;
+    border-left: 4px solid #2d6a4f;
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.tip-card p {
+    color: #ccc;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.cta-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.cta-section p {
+    color: #aaa;
+    margin-bottom: 24px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Спортивные направления */
+.sports-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.create-workout-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+}
+
+.sport-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+    display: block;
+}
+
+.sport-card:hover {
+    transform: translateY(-3px);
+    border-color: #2d6a4f;
+}
+
+.sport-card h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.sport-card p {
+    color: #aaa;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Страница вида спорта */
+.sport-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.sport-page .back-link {
+    margin-bottom: 24px;
+}
+
+.sport-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.sport-header h1 {
+    font-size: 34px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.sport-description {
+    background: #1e1e1e;
+    border-left: 4px solid #2d6a4f;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    border-radius: 8px;
+}
+
+.sport-description p {
+    color: #ccc;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.sport-section {
+    margin-bottom: 28px;
+}
+
+.sport-section h2 {
+    font-size: 22px;
+    color: #fff;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+}
+
+.sport-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sport-section li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+    color: #ccc;
+}
+
+.sport-section li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #2d6a4f;
+}
+
+.create-program-section {
+    text-align: center;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+}
+
+/* Питание */
+.nutrition-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.nutrition-form-card,
+.nutrition-result-card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #333;
+}
+
+.nutrition-form-card h2,
+.nutrition-result-card h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+}
+
+.goal-note,
+.activity-note {
+    color: #2d6a4f;
+    margin-bottom: 4px;
+}
+
+.calorie-main {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(45, 106, 79, 0.15);
+    border-radius: 10px;
+}
+
+.calorie-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2d6a4f;
+}
+
+.calorie-unit {
+    display: block;
+    color: #aaa;
+}
+
+.macro-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.macro-item {
+    flex: 1;
+    text-align: center;
+    padding: 14px 8px;
+    border-radius: 8px;
+    background: #2c2c2c;
+}
+
+.macro-item.protein { border-top: 3px solid #4dabf7; }
+.macro-item.fat { border-top: 3px solid #ffd43b; }
+.macro-item.carbs { border-top: 3px solid #69db7c; }
+
+.macro-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.macro-label {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.bmr-details {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.tips h3 {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.tips ul {
+    color: #aaa;
+    padding-left: 18px;
+}
+
+.nutrition-placeholder p {
+    color: #888;
+}
+
+/* Тренировки / генератор */
+.workout-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.workout-list-item {
+    display: block;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    color: #fff;
+    text-decoration: none;
+    transition: border-color 0.2s;
+}
+
+.workout-list-item:hover {
+    border-color: #2d6a4f;
+    color: #fff;
+}
+
+.workout-list-item .meta {
+    color: #888;
+    font-size: 14px;
+}
+
+.exercise-list {
+    list-style: none;
+    padding: 0;
+}
+
+.exercise-list li {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    color: #ccc;
+}
+
+.exercise-list li strong {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d6a4f;
+}
+
+.stat-card .label {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Профиль в основном layout */
+.profile-page .profile-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.profile-page .profile-avatar-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #2d6a4f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 auto 16px;
+    border: 3px solid #4d4d4d;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Графики прогресса */
+.chart-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.progress-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+}
+
+.progress-table th,
+.progress-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+}
+
+.progress-table th {
+    background: #2d6a4f;
+    color: #fff;
+}
+
+.progress-table tr:hover td {
+    background: #252525;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
